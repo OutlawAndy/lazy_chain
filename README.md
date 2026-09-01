@@ -34,6 +34,10 @@ The page renders now. Each deferred value arrives on its own, as soon as it's re
   resources :estimates, concerns: %i[lazy_chain]
 ```
 
+![A pricing table rendering immediately with every cell reading "Loading...", then each value replacing its placeholder independently and out of order until the table is fully populated](docs/lazy-chain-demo.gif)
+
+Nine expensive values on one table. The structure is there instantly, and each number lands the moment its own request comes back — note that they don't arrive in order, because they aren't waiting on each other.
+
 That's the whole pitch. No new service objects, no background job infrastructure, no cache to invalidate by hand, no JavaScript to write. You point at the slow call and move on with your day.
 
 ## What you get
